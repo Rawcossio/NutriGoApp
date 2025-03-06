@@ -1,12 +1,22 @@
 package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.RestauranteEnum;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="Reaturante")
 public class Tienda {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id_restaurante")
     private Integer id_restaurante;
+    @Column(name="nombre_restaurante", length=100, unique=true, nullable = false )
     private String nombre;
+    @Column(name="direccion_restaurante", length = 255, nullable = false)
     private String direccion;
+    @Column(name="telefono_restaurante", length=20, nullable = false)
     private String telefono;
+    @Column(name="categorias",length=50, nullable = true)
     private RestauranteEnum Categorias;
 
     public Tienda() {

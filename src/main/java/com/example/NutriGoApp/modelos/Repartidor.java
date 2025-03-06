@@ -1,12 +1,22 @@
 package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.RepartidorEnum;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="Repartidor")
 public class Repartidor {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id_repartidor")
     private Integer id_repartidor;
+    @Column(name="nombre_repartidor", length=100, nullable = false )
     private String nombre;
+    @Column(name="telefono_repartidor", length=20, nullable = false )
     private String telefono;
+    @Column(name="telefono_repartidor", length=150,unique = true, nullable = false )
     private String correoElectronico;
+    @Column(name="tipo_vehiculo", length=50, nullable=true)
     private RepartidorEnum tipoVehiculo;
 
     public Repartidor() {
