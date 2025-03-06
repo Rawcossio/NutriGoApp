@@ -13,9 +13,13 @@ public class Usuario {
     private Integer id;
     @Column(name="nombre_usuario", length=100, unique=true, nullable = false )
     private String nombre;
+    @Column(name="correo_usuario", length=150, unique=true, nullable = false )
     private String correoElectronico;
+    @Column(name="contraseña_usuario", length=260, nullable = false)
     private String contraseña;
+    @Column(name="telefono_usuario", length=260, nullable = true)
     private String telefono;
+    @Column(name="tipo_usuario", nullable = false)
     private UsuarioEnum tipoUsuario;
 
     public Usuario() {
