@@ -14,7 +14,7 @@ public class Repartidor {
     private String nombre;
     @Column(name="telefono_repartidor", length=20, nullable = false )
     private String telefono;
-    @Column(name="telefono_repartidor", length=150,unique = true, nullable = false )
+    @Column(name="correo_repartidor", length=150,unique = true, nullable = false )
     private String correoElectronico;
     @Column(name="tipo_vehiculo", length=50, nullable=true)
     private RepartidorEnum tipoVehiculo;
