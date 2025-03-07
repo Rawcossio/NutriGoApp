@@ -18,4 +18,36 @@ public class Detalle {
     @Column(name="subtotal",nullable = false)
     private BigDecimal subtotal;
 
+    public Detalle() {
+    }
+
+    public Detalle(Integer detalle_pedido, Integer cantidad, BigDecimal subtotal) {
+        this.detalle_pedido = detalle_pedido;
+        this.cantidad = cantidad;
+        this.subtotal = subtotal;
+    }
+
+    public Integer getDetalle_pedido() {
+        return detalle_pedido;
+    }
+
+    public void setDetalle_pedido(Integer detalle_pedido) {
+        this.detalle_pedido = detalle_pedido;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public BigDecimal getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(BigDecimal subtotal) {
+        this.subtotal = subtotal;
+    }
 }
