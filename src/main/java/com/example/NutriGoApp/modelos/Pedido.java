@@ -1,6 +1,7 @@
 package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.PedidoEstado;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -20,6 +21,11 @@ public class Pedido {
     private LocalDateTime fecha_pedido;
     @Column(name="total_pedido", nullable = false)
     private BigDecimal total_pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
+    @JsonBackReference
+    private Usuario usuario;
 
     public Pedido() {
     }
