@@ -1,8 +1,11 @@
 package com.example.NutriGoApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name="Productos")
@@ -17,6 +20,16 @@ public class Producto {
     private BigDecimal precio;
     @Column(name="descripcion",nullable = true)
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name="fk_restaurante", referencedColumnName = "id_restaurante")
+    @JsonBackReference
+    private Tienda tiendas;
+
+    @ManyToOne
+    @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
+    @JsonBackReference
+    private Pedido pedidos;
 
     public Producto() {
     }

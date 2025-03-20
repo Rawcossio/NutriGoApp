@@ -1,7 +1,10 @@
 package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.RestauranteEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name="Reaturante")
@@ -18,6 +21,14 @@ public class Tienda {
     private String telefono;
     @Column(name="categorias",length=50, nullable = true)
     private RestauranteEnum Categorias;
+    @OneToMany(mappedBy = "restaurante")
+    @JsonManagedReference
+    List<Producto> productos;
+
+    @OneToMany(mappedBy = "restaurante")
+    @JsonManagedReference
+    List<Pedido> pedidos;
+
 
     public Tienda() {
     }

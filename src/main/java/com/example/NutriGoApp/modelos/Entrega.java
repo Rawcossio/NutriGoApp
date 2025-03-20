@@ -1,6 +1,7 @@
 package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.EntregaEstado;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -16,6 +17,16 @@ public class Entrega {
     private LocalDateTime fecha_de_entrega;
     @Column(name="estado_entrega", columnDefinition = "VARCHAR(10) DEFAULT 'ASIGANDO' ")
     private EntregaEstado estado_entrega;
+
+    @ManyToOne
+    @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
+    @JsonBackReference
+    private Pedido pedidos;
+
+    @ManyToOne
+    @JoinColumn(name="fk_repartidor", referencedColumnName = "id_repartidor")
+    @JsonBackReference
+    private Repartidor repartidor;
 
     public Entrega() {
     }

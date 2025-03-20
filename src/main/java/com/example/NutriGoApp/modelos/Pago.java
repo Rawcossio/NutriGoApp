@@ -2,9 +2,13 @@ package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.PagoEstado;
 import com.example.NutriGoApp.ayudas.enums.PagoMetodos;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Entity
 @Table(name="Pagos")
 public class Pago {
@@ -18,6 +22,11 @@ public class Pago {
     private PagoEstado estado_pago;
     @Column(name="fecha_pedido", columnDefinition ="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime  fecha_pago;
+
+    @ManyToOne
+    @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
+    @JsonBackReference
+    private Pedido pedidos;
 
     public Pago() {
     }

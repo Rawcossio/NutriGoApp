@@ -2,11 +2,14 @@ package com.example.NutriGoApp.modelos;
 
 import com.example.NutriGoApp.ayudas.enums.PedidoEstado;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name="Pedidos")
 public class Pedido {
@@ -26,6 +29,29 @@ public class Pedido {
     @JoinColumn(name = "fk_usuario", referencedColumnName = "id_usuario")
     @JsonBackReference
     private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name="fk_restaurante", referencedColumnName = "id_restaurante")
+    @JsonBackReference
+    private Tienda tienda;
+
+
+    @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
+    private List<Detalle> detalles;
+
+    @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
+    private List<Producto> productos;
+
+    @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
+    private List<Entrega> entregas;
+
+    @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
+    private List<Pago> pagos;
+
 
     public Pedido() {
     }

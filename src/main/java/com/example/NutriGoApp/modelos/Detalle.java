@@ -1,5 +1,6 @@
 package com.example.NutriGoApp.modelos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -18,6 +19,15 @@ public class Detalle {
     @Column(name="subtotal",nullable = false)
     private BigDecimal subtotal;
 
+    @ManyToOne
+    @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
+    @JsonBackReference
+    private Pedido pedidos;
+
+    @ManyToOne
+    @JoinColumn(name="fk_producto" , referencedColumnName = "id_producto")
+    @JsonBackReference
+    private Producto productos;
     public Detalle() {
     }
 
