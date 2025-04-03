@@ -27,7 +27,7 @@ public class UsuarioServicio {
     }
 
     //Buscar todos los registros
-    public List<Usuario> buscarTodosUusuarios() throws Exception {
+    public List<Usuario> buscarTodosUsuarios() throws Exception {
         try {
             return this.repositorio.findAll();
         } catch (Exception error) {
