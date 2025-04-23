@@ -8,11 +8,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name="Productos")
+@Table(name="Producto")
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="productos")
+    @Column(name="id_producto")
     private Integer id_producto;
     @Column(name="nombre_productos", length = 100, nullable = false)
     private String nombre;
@@ -23,13 +23,13 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name="fk_restaurante", referencedColumnName = "id_restaurante")
-    @JsonBackReference
-    private Tienda tiendas;
+    //@JsonBackReference
+    private Tienda restaurante;
 
     @ManyToOne
     @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
     @JsonBackReference
-    private Pedido pedidos;
+    private Pedido pedido;
 
     public Producto() {
     }

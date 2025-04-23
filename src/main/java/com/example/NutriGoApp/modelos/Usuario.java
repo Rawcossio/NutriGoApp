@@ -26,12 +26,12 @@ public class Usuario {
     private UsuarioEnum tipoUsuario;
 
     @OneToMany(mappedBy = "usuario")
-    @JsonManagedReference
-    private List<Direccion> direcciones;
+    //@JsonManagedReference
+    private List<Direccion> direccion;
 
     @OneToMany(mappedBy = "usuario")
-    @JsonManagedReference
-    private List<Pedido> pedidos;
+    //@JsonManagedReference
+    private List<Pedido> pedido;
 
     public Usuario() {
     }

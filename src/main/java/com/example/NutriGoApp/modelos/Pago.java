@@ -25,8 +25,8 @@ public class Pago {
 
     @ManyToOne
     @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
-    @JsonBackReference
-    private Pedido pedidos;
+    //@JsonBackReference
+    private Pedido pedido;
 
     public Pago() {
     }

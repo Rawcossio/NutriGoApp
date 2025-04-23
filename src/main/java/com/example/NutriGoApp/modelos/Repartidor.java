@@ -23,8 +23,8 @@ public class Repartidor {
     private RepartidorEnum tipoVehiculo;
 
     @OneToMany(mappedBy = "repartidor")
-    @JsonManagedReference
-    private List<Entrega> entregas;
+    //@JsonManagedReference
+    private List<Entrega> entrega;
 
     public Repartidor() {
     }

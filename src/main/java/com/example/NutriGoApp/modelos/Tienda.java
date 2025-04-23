@@ -23,11 +23,11 @@ public class Tienda {
     private RestauranteEnum Categorias;
     @OneToMany(mappedBy = "restaurante")
     @JsonManagedReference
-    List<Producto> productos;
+    List<Producto> producto;
 
     @OneToMany(mappedBy = "restaurante")
-    @JsonManagedReference
-    List<Pedido> pedidos;
+    //@JsonManagedReference
+    List<Pedido> pedido;
 
 
     public Tienda() {

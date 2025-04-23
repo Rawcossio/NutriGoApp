@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 
 @Entity
-@Table(name="Detalle Pedido")
+@Table(name="Detalle")
 public class Detalle {
 
     @Id
@@ -21,13 +21,13 @@ public class Detalle {
 
     @ManyToOne
     @JoinColumn(name="fk_pedido", referencedColumnName = "id_pedido")
-    @JsonBackReference
-    private Pedido pedidos;
+    //@JsonBackReference
+    private Pedido pedido;
 
     @ManyToOne
     @JoinColumn(name="fk_producto" , referencedColumnName = "id_producto")
-    @JsonBackReference
-    private Producto productos;
+    //@JsonBackReference
+    private Producto producto;
     public Detalle() {
     }
 
